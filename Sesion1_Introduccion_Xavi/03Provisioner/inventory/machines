@@ -1,0 +1,2 @@
+vega ansible_host=178.128.205.97 ansible_ssh_user=root ansible_ssh_private_key_file=/root/.ssh/id_rsa
+casiopea ansible_host=134.209.238.75 ansible_ssh_user=root ansible_ssh_private_key_file=/root/.ssh/id_rsa
