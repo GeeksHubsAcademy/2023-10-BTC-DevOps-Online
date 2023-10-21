@@ -10,7 +10,10 @@ data "aws_iam_policy_document" "terraform_operator" {
   }
 
   statement {
-    actions = ["s3:ListAllMyBuckets"]
+    actions = [
+      "s3:ListAllMyBuckets",
+      "s3:ListBucket"
+    ]
 
     resources = ["*"]
   }
