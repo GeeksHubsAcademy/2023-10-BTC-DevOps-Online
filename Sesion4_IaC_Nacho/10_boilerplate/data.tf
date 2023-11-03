@@ -15,3 +15,13 @@ data "aws_security_group" "allow_traffic" {
   name   = "allow-http-inbound-traffic"
   vpc_id = data.aws_vpc.selected.id
 }
+
+data "aws_security_group" "allow_ssh" {
+  name   = "allow-ssh-inbound-traffic"
+  vpc_id = data.aws_vpc.selected.id
+}
+
+data "aws_security_group" "allow_outbound" {
+  name   = "allow-all-outbound-traffic"
+  vpc_id = data.aws_vpc.selected.id
+}
