@@ -1,0 +1,40 @@
+#cloud-config
+# DO NOT FORGET #cloud-config
+users:
+  - default
+  - name: administrator
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    lock_passwd: true
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCa/rU4JQAf2j00Wc9dV8nuw6hKM3VB/elLPjAV1PzhjGTCP0E90gEkEfteIb42klN81sgV0Jeb+nq4qnPbtzl2Kyhb6GOVbc3b27w0udRdwTMT0l4eyaWxMSxlQlYKpltB/YXAbBOWBhmnXzest4e54IqvI0Q3dPJI7oEF3ebp5SL5yTP/89crcN05dYYn9uzejArrF9iy65w+ASHmj6fziAFio3Y5vtrv2ZYoTQVIKwzvoa/hDVjw3PDfqA2+O2iPdyNDZjTtedZjZi5jEx3ZqvsqPnXpwVWB+liobWv9iwsGSSFT/S57y8p5And5I3T+2xH0RfU5UZj9qhgHtpHiABwtuDiaDzdroY4uxDJH02y05Du9JkuDuT+OJSvqnfKeFO0exJVwZcVvZ/RDsy3Aj9fbGiYNJsGCZo7X/YWs1k5T+/zSWqIcesU3YCAq5wmbwH25tMIjO5BzNDGEJn4QOy91SAooEoGmopAjlkLh+TwptJTZa6LEoq8dH/G0TdE= nacho@Nacho
+
+# Update and Upgrade packages
+package_update: true
+package_upgrade: true
+packages: ['nginx']
+
+write_files:
+  - owner: root:root
+    path: /var/www/html/index.html
+    content: |
+      <!DOCTYPE html>
+      <html>
+      <head>
+      <title>Nacho did this!</title>
+      <style>
+          body {
+              width: 35em;
+              margin: 0 auto;
+              font-family: Tahoma, Verdana, Arial, sans-serif;
+          }
+      </style>
+      </head>
+      <body>
+      <h1>Hello World!</h1>
+      <p>This is my supersite set up by cloud-init</p>
+      </body>
+      </html>
+
+runcmd:
+  - sudo systemctl restart nginx
