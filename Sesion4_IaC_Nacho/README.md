@@ -16,7 +16,7 @@ Comprobamos que, como el otro día, somos capaces de generar una instancia de Bi
 ## 2. Enunciados
 En esta carpeta vamos a encontrar los enunciados de los siguientes ejercicios. Posteriormente se subirán las soluciones.
 
-### 1. Cloud-admin
+### 1. Cloud-init
 Antes de nada vamos a dejar de utilizar esta AMI de Bitnami y vamos a gestionar nosotros directamente una Ubuntu. Por tanto actualizo la AMI.
 
 El objetivo del ejercicio es crear un fichero de cloud-init en formato cloud-config (YAML)
