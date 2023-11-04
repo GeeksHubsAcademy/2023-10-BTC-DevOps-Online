@@ -1,0 +1,26 @@
+---
+- name: Manage Webserver
+  hosts: geekshubs
+  tasks:
+  - name: Update and upgrade instance
+    become: true
+    ansible.builtin.apt:
+      update_cache: true
+      upgrade: true
+  - name: Install nginx
+    become: true
+    ansible.builtin.apt:
+      name: nginx
+      state: latest
+  - name: Upload html
+    become: true
+    ansible.builtin.copy:
+      owner: root
+      group: root
+      src: "./index.html"
+      dest: /var/www/html/index.html
+  - name: Restart nginx
+    become: true
+    ansible.builtin.service:
+      name: nginx
+      state: restarted
