@@ -1,0 +1,26 @@
+---
+- name: Nginx package
+  ansible.builtin.apt:
+    name: "{{ item }}"
+  with_items:
+    - nginx
+    - wget
+    - curl
+
+- name: Nginx started and enabled
+  ansible.builtin.service:
+    name: nginx
+    enabled: true
+    state: started
+
+- name: HTML index file from template
+  ansible.builtin.template:
+    src: "{{ item }}.html.j2"
+    dest: /var/www/html/{{ item }}.html
+    owner: www-data
+    group: www-data
+  with_items:
+    - index
+    - second
+  notify:
+    - Restart nginx
