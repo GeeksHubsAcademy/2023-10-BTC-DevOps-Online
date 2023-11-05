@@ -26,5 +26,3 @@ Crearemos un playbook con un único play que se encargue de las siguientes tarea
 - Suba el fichero index.html a su la localización correspondiente (`/var/www/html`)
 
 Nota: después de modificar el fichero el servicio nginx tiene que reiniciarse
-
-Recomiendo probar el playbook ejecutando ansible playbook para cada tarea y así ver cómo funciona de forma iterativa
